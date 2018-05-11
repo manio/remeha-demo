@@ -1,0 +1,37 @@
+--------------------------------------------------------------------------------------
+remeha-demo
+--------------------------------------------------------------------------------------
+This is a simple demo project to show how to query the DeDietrich/remeha boiler.
+
+More information:
+https://skyboo.net/2017/03/monitoring-dedietrich-from-linux/
+
+--------------------------------------------------------------------------------------
+compilation / running
+--------------------------------------------------------------------------------------
+Sample build/compilation procedure:
+$ git clone git://github.com/manio/remeha-demo.git
+$ cd remeha-demo
+$ mkdir out
+$ cd out
+$ cmake ..
+$ make
+
+The code is connecting to the boiler exposed via a network socket.
+In my case on the RPi (which has a boiler physically connected) I have to run:
+socat TCP4-LISTEN:999,fork /dev/ttyACM0,raw
+
+You can run the remeha binary afterwards. It is querying the boiler and doing
+the grafana update as a result.
+
+WARNING: This code is only example !!!
+You surely want to make some fixes / adjustments / etc.
+
+--------------------------------------------------------------------------------------
+license
+--------------------------------------------------------------------------------------
+This program is free software; you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation; either version 2 of the License, or
+(at your option) any later version.
+See the file COPYING for more information.
